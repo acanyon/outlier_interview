@@ -9,7 +9,7 @@ class LaunchesView extends Component {
     fetchLaunchesIfNeeded({ dispatch, launchesCollection });
   }
 
-  getContent() {
+  renderLaunches() {
     const { launchCollection } = this.props;
 
     if (!launchCollection || launchCollection.fetching) {
@@ -20,28 +20,25 @@ class LaunchesView extends Component {
       return <div> NO DATA </div>;
     }
 
-    let launches = [];
-
-    for (let i = 0; i < launchCollection.launches.length; i++) {
-      const launch = launchCollection.launches[i];
-
-      launches.push(
-        <Launch {...{
-          key: launch.launch_id,
-          launch
-        }} />
-
-      )
-    }
-
-    return <ul>{launches}</ul>;
+    return (
+      <ul>
+        {
+          launchCollection.launches.map(launch =>
+            <Launch
+              key={launch.launch_id}
+              launch={launch}
+            />
+          )
+        }
+      </ul>
+    );
   }
 
   render() {
     return (
       <div>
         <h2> SpaceX launches </h2>
-        {this.getContent()}
+        {this.renderLaunches()}
       </div>
     );
   }
