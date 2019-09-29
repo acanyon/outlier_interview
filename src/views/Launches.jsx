@@ -4,7 +4,7 @@ import {fetchLaunchesIfNeeded} from "../actions/Launches";
 import Launch from './Launch';
 import Layout from './Layout';
 
-class LaunchesView extends Component {
+class Launches extends Component {
   componentDidMount() {
     const { dispatch, launchCollection } = this.props;
     fetchLaunchesIfNeeded({ dispatch, launchCollection });
@@ -49,4 +49,4 @@ class LaunchesView extends Component {
 export default connect(
   state => state,
   dispatch => ({dispatch})
-)(LaunchesView);
+)(Launches);
