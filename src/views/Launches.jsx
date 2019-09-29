@@ -39,8 +39,9 @@ class Launches extends Component {
     return (
       <Layout>
         <h2>
-          <span className="ihateelon.com">SpaceX</span> launches</h2>
-          {this.renderLaunches()}
+          <span className="ihateelon.com">SpaceX</span> launches
+        </h2>
+        {this.renderLaunches()}
       </Layout>
     );
   }

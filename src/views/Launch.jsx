@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Launch extends Component {
   render() {
@@ -7,8 +8,9 @@ class Launch extends Component {
     return (
       <li>
         <h2> { launch.mission_name } </h2>
-        <div> { launch.rocket.rocket_name } </div>
-        <div > { launch.rocket.rocket_id } </div>
+        <Link to={`/rocket/${ launch.rocket.rocket_id }`}>
+          { launch.rocket.rocket_name }
+        </Link>
       </li>
     );
   }
