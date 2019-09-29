@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ConnectedView from './ConnectedView';
 import {fetchLaunchesIfNeeded} from "../actions/Launches";
-import Launch from '../components/Launch';
+import Launch from './Launch';
 
 class LaunchesView extends Component {
   componentDidMount() {
