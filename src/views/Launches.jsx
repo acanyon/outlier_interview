@@ -5,8 +5,8 @@ import Launch from './Launch';
 
 class LaunchesView extends Component {
   componentDidMount() {
-    const { dispatch, launchesCollection } = this.props;
-    fetchLaunchesIfNeeded({ dispatch, launchesCollection });
+    const { dispatch, launchCollection } = this.props;
+    fetchLaunchesIfNeeded({ dispatch, launchCollection });
   }
 
   renderLaunches() {
