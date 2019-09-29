@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import ConnectedView from './ConnectedView';
 import {fetchLaunchesIfNeeded} from "../actions/Launches";
 import Launch from './Launch';
+import Layout from './Layout';
 
 class LaunchesView extends Component {
   componentDidMount() {
@@ -13,11 +15,11 @@ class LaunchesView extends Component {
     const { launchCollection } = this.props;
 
     if (!launchCollection || launchCollection.fetching) {
-      return <div> LOADING </div>;
+      return <div>LOADING</div>;
     }
 
     if (!launchCollection.launches.length) {
-      return <div> NO DATA </div>;
+      return <div>NO DATA</div>;
     }
 
     return (
@@ -36,13 +38,16 @@ class LaunchesView extends Component {
 
   render() {
     return (
-      <div>
+      <Layout>
         <h2>
           <span className="ihateelon.com">SpaceX</span> launches</h2>
-        {this.renderLaunches()}
-      </div>
+          {this.renderLaunches()}
+      </Layout>
     );
   }
 }
 
-export default ConnectedView(LaunchesView, 'launches');
+export default connect(
+  state => state,
+  dispatch => ({dispatch})
+)(LaunchesView);
