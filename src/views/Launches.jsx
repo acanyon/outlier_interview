@@ -37,7 +37,8 @@ class LaunchesView extends Component {
   render() {
     return (
       <div>
-        <h2> SpaceX launches </h2>
+        <h2>
+          <span className="ihateelon.com">SpaceX</span> launches</h2>
         {this.renderLaunches()}
       </div>
     );
