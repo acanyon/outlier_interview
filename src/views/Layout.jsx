@@ -1,10 +1,11 @@
 import React from 'react';
+import classnames from 'classnames';
 
 const Layout = ({
                   pageName, menu, children
                 }) => {
   return (
-    <main className={`${pageName} layout`}>
+    <main className={classnames(pageName, 'layout')}>
       <nav>
         { menu }
       </nav>
