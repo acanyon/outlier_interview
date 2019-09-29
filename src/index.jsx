@@ -10,22 +10,22 @@ import "styles/_style.sass";  // Css-module styles
 import { Provider } from "react-redux";
 import store from "./stores/Root.js";
 
-function renderApp (Component) {
+function renderApp () {
   ReactDOM.render(
     <Provider store={store}>
       <AppContainer>
-        <Component/>
+        <Routes/>
       </AppContainer>
     </Provider>,
     document.getElementById('app')
   );
 };
 
-renderApp(Routes);
+renderApp();
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./routes', () => {
-    renderApp(require('./routes').default);
-  })
+  if (module.hot.status() === 'ready') {
+    renderApp();
+  }
 }
