@@ -34,8 +34,8 @@ class Rocket extends Component {
 
     return (
       <React.Fragment>
-        <h2>{ rocket.rocket_name }</h2>
-        <div>{ rocket.description }</div>
+        <h2 className="rocket_name">{ rocket.rocket_name }</h2>
+        <div className="description">{ rocket.description }</div>
         <br />
         <div className="img_container">
           { rocket.flickr_images.map(img_url =>
@@ -43,7 +43,6 @@ class Rocket extends Component {
             )
           }
         </div>
-        <div>
       </React.Fragment>
     );
   }
